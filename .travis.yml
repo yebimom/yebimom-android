@@ -7,13 +7,6 @@ env:
 
 android:
 
-  # Create and Start Emulator
-  before_script:
-    - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
-    - emulator -avd test -no-skin -no-audio -no-window &
-    - android-wait-for-emulator
-    - adb shell input keyevent 82 &
-
   components:
     - platform-tools
     - tools
@@ -39,4 +32,11 @@ android:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 
-  script: ./gradlew connectedAndroidTest
+# Create and Start Emulator
+  before_script:
+    - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+    - emulator -avd test -no-skin -no-audio -no-window &
+    - android-wait-for-emulator
+    - adb shell input keyevent 82 &
+
+script: ./gradlew connectedAndroidTest
