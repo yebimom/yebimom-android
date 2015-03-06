@@ -33,5 +33,10 @@ android:
     - sys-img-armeabi-v7a-android-14
     - sys-img-x86-android-14
 
+  # Accept Android Licenses
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 
   script: ./gradlew connectedAndroidTest
