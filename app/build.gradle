@@ -10,6 +10,18 @@ android {
 		targetSdkVersion 21
 		versionCode 1
 		versionName "1.0"
+
+		// testing Instrumentation androidJunitRunner
+		testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+	}
+
+	sourceSets {
+		packagingOptions {
+
+			// tesing license.txt
+			exclude 'META-INF/LICENSE.txt'
+			exclude 'LICENSE.txt'
+		}
 	}
 
 	buildTypes {
@@ -28,4 +40,19 @@ android {
 dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
 	compile 'com.android.support:appcompat-v7:21.0.3'
+
+	// Facebook SDK.
+	compile 'com.facebook.android:facebook-android-sdk:3.21.1'
+
+	// UI testing.
+	compile files('libs/uiautomator.jar')
+
+	// Espresso : android UI testing.
+	androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
+	androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
+	androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.0'
+
+	// Annotation.
+	compile 'com.android.support:support-annotations:21.0.3'
+	compile 'com.google.guava:guava:18.0'
 }

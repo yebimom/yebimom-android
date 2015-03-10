@@ -1,15 +1,20 @@
 package com.yebimom.android.yebimom;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
+
+import com.facebook.AppEventsLogger;
+import com.facebook.Session;
+import com.facebook.SessionState;
+import com.facebook.widget.LoginButton;
+
+import java.util.Arrays;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -23,6 +28,22 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Logs facebook 'install' and 'app activate' App Events.
+        AppEventsLogger.activateApp(getApplicationContext());
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Logs facebook 'app deactivate' App Event.
+        AppEventsLogger.deactivateApp(getApplicationContext());
     }
 
 
@@ -49,7 +70,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     /**
-     * A placeholder fragment containing a simple view.
+     * A placeholder fragment containing a fragment_main view.
      */
     public static class PlaceholderFragment extends Fragment {
 
@@ -60,7 +81,33 @@ public class MainActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+            LoginButton authButton = (LoginButton) rootView.findViewById(R.id.authButton);
+            authButton.setReadPermissions(Arrays.asList("public_profile"));
+
             return rootView;
         }
+
+        private Session.StatusCallback statusCallback =
+                new SessionStatusCallback();
+
+        private void onClickLogin() {
+            Session session = Session.getActiveSession();
+            if (!session.isOpened() && !session.isClosed()) {
+                session.openForRead(new Session.OpenRequest(this)
+                        .setPermissions(Arrays.asList("public_profile"))
+                        .setCallback(statusCallback));
+            } else {
+                Session.openActiveSession(getActivity(), this, true, statusCallback);
+            }
+        }
+        private class SessionStatusCallback implements Session.StatusCallback {
+            @Override
+            public void call(Session session, SessionState state, Exception exception) {
+                // Respond to session state changes, ex: updating the view
+            }
+        }
     }
+
+
 }
