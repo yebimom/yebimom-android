@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">예비맘</string>
+    <string name="action_settings">설정</string>
+
+    <string name="login">로그인</string>
+</resources>
