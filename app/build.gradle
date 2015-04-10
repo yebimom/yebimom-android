@@ -35,6 +35,11 @@ android {
 		sourceCompatibility JavaVersion.VERSION_1_7
 		targetCompatibility JavaVersion.VERSION_1_7
 	}
+
+	lintOptions {
+		disable 'InvalidPackage'
+	}
+
 }
 
 dependencies {
@@ -55,4 +60,7 @@ dependencies {
 	// Annotation.
 	compile 'com.android.support:support-annotations:21.0.3'
 	compile 'com.google.guava:guava:18.0'
+
+	// ButterKnife : View Dependency Injection tools.
+	compile 'com.jakewharton:butterknife:6.1.0'
 }
