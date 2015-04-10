@@ -10,9 +10,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-/**
- * Created by corikachu on 15. 3. 10..
- */
+
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class MainActivityTest extends AndroidTestCase {
