@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Yebimom</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="facebook_app_id" translatable="false">1058893210804001</string>
+    <string name="login">Login</string>
 </resources>
