@@ -44,7 +44,7 @@ android {
 
 dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
-	compile 'com.android.support:appcompat-v7:21.0.3'
+	compile 'com.android.support:appcompat-v7:22.0.0'
 
 	// Facebook SDK.
 	compile 'com.facebook.android:facebook-android-sdk:3.21.1'
@@ -53,9 +53,9 @@ dependencies {
 	compile files('libs/uiautomator.jar')
 
 	// Espresso : android UI testing.
-	androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
-	androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
-	androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.0'
+	//androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
+	//androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
+	//androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.0'
 
 	// Annotation.
 	compile 'com.android.support:support-annotations:21.0.3'
@@ -63,4 +63,10 @@ dependencies {
 
 	// ButterKnife : View Dependency Injection tools.
 	compile 'com.jakewharton:butterknife:6.1.0'
+
+	// Jackson : json generator and parser.
+	compile 'com.fasterxml.jackson.core:jackson-core:2.5.2'
+
+	// Volley : http network library
+	compile 'com.mcxiaoke.volley:library:1.0.15'
 }
