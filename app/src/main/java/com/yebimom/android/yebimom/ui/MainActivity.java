@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.yebimom.android.yebimom.R;
-import com.yebimom.android.yebimom.ui.Login.LoginActivity;
+import com.yebimom.android.yebimom.ui.login.LoginActivity;
 
 
 public class MainActivity extends ActionBarActivity {

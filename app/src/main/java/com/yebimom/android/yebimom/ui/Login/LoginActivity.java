@@ -1,4 +1,4 @@
-package com.yebimom.android.yebimom.ui.Login;
+package com.yebimom.android.yebimom.ui.login;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -19,7 +19,7 @@ import butterknife.OnClick;
 
 public class LoginActivity extends ActionBarActivity {
 
-    private static final String Log_Tag = LoginActivity.class.getSimpleName();
+    private static final String TAG = LoginActivity.class.getSimpleName();
 
     // Facebook Session Status
     private Session.StatusCallback statusCallback =
@@ -44,7 +44,7 @@ public class LoginActivity extends ActionBarActivity {
                 .add(R.id.loginMainFragment, new LoginFragment())
                 .addToBackStack(null)
                 .commit();
-        Log.d(Log_Tag, "commit");
+        Log.d(TAG, "commit");
     }
 
 
