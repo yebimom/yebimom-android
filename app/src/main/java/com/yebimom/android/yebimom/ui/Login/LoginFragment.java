@@ -23,7 +23,7 @@ public class LoginFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Create Fragment View withd fragment_login.xml
+        // Create Fragment View with fragment_login.xml
         View rootView = inflater.inflate(R.layout.fragment_login, container, false);
 
         // ButterKnife init
