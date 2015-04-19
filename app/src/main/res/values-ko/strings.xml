@@ -3,4 +3,8 @@
     <string name="action_settings">설정</string>
 
     <string name="login">로그인</string>
+    <string name="free_board">산후조리원</string>
+    <string name="home">홈</string>
+    <string name="love_board">산후조리원</string>
+    <string name="anonymous_board">산후조리원</string>
 </resources>
