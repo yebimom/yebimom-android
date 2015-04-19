@@ -69,4 +69,8 @@ dependencies {
 
 	// Volley : http network library
 	compile 'com.mcxiaoke.volley:library:1.0.15'
+
+	// CardView, RecyclerView : android view library
+	compile 'com.android.support:cardview-v7:22.0.0'
+	compile 'com.android.support:recyclerview-v7:22.0.0'
 }
