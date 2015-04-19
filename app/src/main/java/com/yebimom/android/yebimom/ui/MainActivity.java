@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.yebimom.android.yebimom.R;
-import com.yebimom.android.yebimom.ui.login.LoginActivity;
+import com.yebimom.android.yebimom.ui.centers.CenterListActivity;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -17,7 +17,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        startActivity(new Intent(getApplicationContext(), CenterListActivity.class));
     }
 
     @Override
