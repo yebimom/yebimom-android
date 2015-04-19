@@ -6,7 +6,9 @@ import android.text.TextUtils;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.yebimom.android.yebimom.utils.LruBitmapCache;
 
 /**
  * com.yebimom.android.yebimom Need Comment!
@@ -18,6 +20,7 @@ public class ApplicationController extends Application{
     private static ApplicationController instance;
 
     private RequestQueue mRequestQueue;
+    private ImageLoader mImageLoader;
 
     @Override
     public void onCreate() {
@@ -38,6 +41,14 @@ public class ApplicationController extends Application{
         }
 
         return mRequestQueue;
+    }
+
+    public ImageLoader getImageLoader() {
+        getRequestQueue();
+        if (mImageLoader == null) {
+            mImageLoader = new ImageLoader(this.mRequestQueue, new LruBitmapCache());
+        }
+        return this.mImageLoader;
     }
 
     public <T> void addToRequestQueue(Request<T> req, String tag) {
