@@ -1,29 +1,29 @@
 package com.yebimom.android.yebimom.ui.login;
 
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuItem;
 
-import com.facebook.AppEventsLogger;
-import com.facebook.Session;
-import com.facebook.SessionState;
-import com.facebook.widget.LoginButton;
 import com.yebimom.android.yebimom.R;
 
-import java.util.Arrays;
-
 import butterknife.ButterKnife;
-import butterknife.OnClick;
+import butterknife.InjectView;
 
 
 public class LoginActivity extends ActionBarActivity {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
 
-    // Facebook Session Status
-    private Session.StatusCallback statusCallback =
-            new SessionStatusCallback();
+    @InjectView(R.id.loginViewPager)
+    ViewPager mViewPager;
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
+
+    private LoginViewPagerAdapter viewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,55 +32,52 @@ public class LoginActivity extends ActionBarActivity {
 
         ButterKnife.inject(this);
 
-        // Facebook Login
-        LoginButton FacebookAuthButton = (LoginButton) findViewById(R.id.facebookAuthButton);
-        FacebookAuthButton.setReadPermissions(Arrays.asList("public_profile"));
-    }
+        setSupportActionBar(toolbar);
+        getSupportActionBar().hide();
 
-    @OnClick(R.id.mainLoginButton)
-    public void loginButton(Button button) {
-        getFragmentManager().beginTransaction()
-                .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_right, 0, 0)
-                .add(R.id.loginMainFragment, new LoginFragment())
-                .addToBackStack(null)
-                .commit();
-        Log.d(TAG, "commit");
-    }
+        // Set Viewpager
+        viewPagerAdapter = new LoginViewPagerAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(viewPagerAdapter);
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if( position == 0 ){
+                    getSupportActionBar().hide();
+                }else{
+                    getSupportActionBar().show();
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    getSupportActionBar().setTitle("로그인");
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+    }
 
     @Override
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
 
-        // Logs facebook 'install' and 'app activate' App Events.
-        AppEventsLogger.activateApp(getApplicationContext());
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-
-        // Logs facebook 'app deactivate' App Event.
-        AppEventsLogger.deactivateApp(getApplicationContext());
-    }
-
-    /*
-    private void onClickLogin() {
-        Session session = Session.getActiveSession();
-        if (!session.isOpened() && !session.isClosed()) {
-            session.openForRead(new Session.OpenRequest(this)
-                    .setPermissions(Arrays.asList("public_profile"))
-                    .setCallback(statusCallback));
-        } else {
-            Session.openActiveSession(getActivity(), this, true, statusCallback);
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                Log.d(TAG, "HOME BUTTON");
+                mViewPager.setCurrentItem(0, true);
+                return true;
         }
+        return super.onOptionsItemSelected(item);
     }
-    */
-    private class SessionStatusCallback implements Session.StatusCallback {
 
-        @Override
-        public void call(Session session, SessionState state, Exception exception) {
-            // Respond to session state changes, ex: updating the view
-        }
-    }
 }
