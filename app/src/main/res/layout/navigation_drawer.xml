@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yebimom.android.yebimom.ui.sidebar.ScrimInsetsScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/left_drawer"
+    android:orientation="vertical"
+    android:layout_width="304dp"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:layout_gravity="start"
+    android:fitsSystemWindows="true"
+    app:insetForeground="#4000"
+    android:background="#fff">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:id="@+id/chosen_account_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/appbar_x2">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/navi_drawer_bg"
+                android:scaleType="centerCrop"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/keyline_third"
+                android:paddingTop="@dimen/keyline_first"
+                android:paddingBottom="@dimen/keyline_first"
+                android:id="@+id/chosen_account_content_view">
+
+                <TextView
+                    android:id="@+id/profile_email_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+
+                    android:paddingLeft="@dimen/keyline_second"
+
+                    android:text="Corikachu님 환영합니다!"
+                    android:textSize="@dimen/content_cpation_12sp"
+                    android:textColor="@color/white_alpha_54"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/profile_name_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/profile_email_text"
+                    android:layout_alignParentLeft="true"
+
+                    android:paddingLeft="@dimen/keyline_second"
+
+                    android:text="안유정"
+                    android:textSize="@dimen/content_body_14sp"
+                    android:textColor="@color/white_alpha_87"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:ellipsize="end" />
+
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:src="@drawable/person_image_empty"
+                    android:layout_width="@dimen/navdrawer_profile_image_size"
+                    android:layout_height="@dimen/navdrawer_profile_image_size"
+                    android:layout_marginLeft="@dimen/keyline_first"
+                    android:layout_alignParentBottom="true"
+                    android:scaleType="centerCrop" />
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/left_drawer_home"
+            style="@style/Widget.MyTheme.NavigationDrawerItem">
+            <ImageView
+                android:src="@drawable/ic_home_grey600_24dp"
+                android:layout_marginLeft="@dimen/keyline_first"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.IconView"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/home"
+                android:layout_marginLeft="@dimen/keyline_second"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.TextView"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/left_drawer_free_board"
+            style="@style/Widget.MyTheme.NavigationDrawerItem">
+
+            <ImageView
+                android:src="@drawable/ic_forum_grey600_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/keyline_first"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.IconView"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/free_board"
+                android:layout_marginLeft="@dimen/keyline_second"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.TextView"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/left_drawer_love_board"
+            style="@style/Widget.MyTheme.NavigationDrawerItem">
+            <ImageView
+                android:src="@drawable/ic_favorite_grey600_24dp"
+                android:layout_marginLeft="@dimen/keyline_first"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.IconView"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/love_board"
+                android:layout_marginLeft="@dimen/keyline_second"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.TextView"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/left_drawer_anonymous_board"
+            style="@style/Widget.MyTheme.NavigationDrawerItem">
+            <ImageView
+                android:src="@drawable/ic_visibility_off_grey600_24dp"
+                android:layout_marginLeft="@dimen/keyline_first"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.IconView"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/anonymous_board"
+                android:layout_marginLeft="@dimen/keyline_second"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.TextView"/>
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            style="@style/Widget.MyTheme.NavigationDrawerItem.DividerBold"/>
+
+        <FrameLayout
+            android:id="@+id/left_drawer_loginlogout"
+            style="@style/Widget.MyTheme.NavigationDrawerItem">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/login"
+                android:layout_marginLeft="@dimen/keyline_first"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.TextView"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/left_drawer_settings"
+            style="@style/Widget.MyTheme.NavigationDrawerItem">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/action_settings"
+                android:layout_marginLeft="@dimen/keyline_first"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.TextView"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/left_drawer_help"
+            style="@style/Widget.MyTheme.NavigationDrawerItem">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/keyline_first"
+                android:text="@string/action_help"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.TextView"/>
+        </FrameLayout>
+
+    </LinearLayout>
+
+</com.yebimom.android.yebimom.ui.sidebar.ScrimInsetsScrollView>

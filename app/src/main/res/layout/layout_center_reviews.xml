@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="270dp"
+              android:background="@color/white_alpha_54">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="후기"
+        android:id="@+id/reviewTopText"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black_alpha_26"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ReviewPersonImage"
+        android:layout_below="@+id/reviewTopText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/person_image_empty"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black_alpha_26"
+        android:text="안유정"
+        android:id="@+id/reviewPersonName"
+        android:layout_below="@+id/ReviewPersonImage"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="덕분에 몸도 많이 회복되고 두렵고 막막하기만 했던 엄마가 된다는것에대한 마음의 준비를 할수 있었습니다.이제 집으로 돌아가면 조리원에 있었던 시간들이 많이그리워질꺼에요. 수정이도 선생님들이 보고싶을거에요.. 나중에 둘째가 생기면 꼭 다시 올께요. 모두모두 감사합니다.!!!"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/reviewPersonName"
+        android:textColor="@color/black_alpha_26"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>
