@@ -92,20 +92,24 @@ public class CenterListActivity extends ActionBarActivity {
                                 // set item name
                                 item.setCenterName(jsonObject.getString("name"));
 
-                                // set itme address
+                                // set item address
                                 item.setCenterAddress(jsonObject.getString("address"));
 
-                                // 이미지 url : 서버에서 잘못보내주는 url을 처리
-                                String imageurl;
+                                // set item phone number
+                                item.setCenterPhoneNumber(jsonObject.getString("phone"));
+
+                                // Todo : 서버에서 잘못보내주는 url을 처리중
+                                // API 수정시 다시 고쳐야함
+                                String imageUrl;
                                 if ( jsonObject.getString("main_image_url").contains("http") ){
-                                    imageurl = jsonObject.getString("main_image_url");
+                                    imageUrl = jsonObject.getString("main_image_url");
                                 }else {
-                                    imageurl = "https://yebimom.com";
-                                    imageurl += jsonObject.getString("main_image_url");
+                                    imageUrl = "https://yebimom.com";
+                                    imageUrl += jsonObject.getString("main_image_url");
                                 }
 
-                                // set imageurl
-                                item.setCenterImageUrl(imageurl);
+                                // set imageUrl
+                                item.setCenterImageUrl(imageUrl);
 
                                 data.add(item);
 
