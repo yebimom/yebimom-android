@@ -42,5 +42,15 @@
         android:textColor="@color/black_alpha_26"
         android:textSize="15sp"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailContactHost"
+        android:layout_below="@+id/detailAddress"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/accent_material_dark"
+        android:text="@string/contact_host"
+        />
 
 </RelativeLayout>

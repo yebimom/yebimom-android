@@ -77,56 +77,48 @@ public class CenterListActivity extends ActionBarActivity {
         showProgressDialog();
 
         // Request json data from server.
-        JsonArrayRequest jsonArrayRequest =
-                new JsonArrayRequest(Request.Method.GET,
-                                            CENTER_API_URL, new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        dismissProgressDialog();
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, CENTER_API_URL, response -> {
+            dismissProgressDialog();
 
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-                                CenterData item = new CenterData();
-                                JSONObject jsonObject = response.getJSONObject(i);
+            for (int i = 0; i < response.length(); i++) {
+                try {
+                    CenterData item = new CenterData();
+                    JSONObject jsonObject = response.getJSONObject(i);
 
-                                // set item name
-                                item.setCenterName(jsonObject.getString("name"));
+                    // set item name
+                    item.setCenterName(jsonObject.getString("name"));
 
-                                // set item address
-                                item.setCenterAddress(jsonObject.getString("address"));
+                    // set item address
+                    item.setCenterAddress(jsonObject.getString("address"));
 
-                                // set item phone number
-                                item.setCenterPhoneNumber(jsonObject.getString("phone"));
+                    // set item phone number
+                    item.setCenterPhoneNumber(jsonObject.getString("phone"));
 
-                                // Todo : 서버에서 잘못보내주는 url을 처리중
-                                // API 수정시 다시 고쳐야함
-                                String imageUrl;
-                                if ( jsonObject.getString("main_image_url").contains("http") ){
-                                    imageUrl = jsonObject.getString("main_image_url");
-                                }else {
-                                    imageUrl = "https://yebimom.com";
-                                    imageUrl += jsonObject.getString("main_image_url");
-                                }
-
-                                // set imageUrl
-                                item.setCenterImageUrl(imageUrl);
-
-                                data.add(item);
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-
-                        adapter.notifyDataSetChanged();
+                    // Todo : 서버에서 잘못보내주는 url을 처리중
+                    // API 수정시 다시 고쳐야함
+                    String imageUrl;
+                    if ( jsonObject.getString("main_image_url").contains("http") ){
+                        imageUrl = jsonObject.getString("main_image_url");
+                    }else {
+                        imageUrl = "https://yebimom.com";
+                        imageUrl += jsonObject.getString("main_image_url");
                     }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        VolleyLog.d(TAG, "ERROR : " + error.getMessage());
-                        dismissProgressDialog();
 
-                    }
+                    // set imageUrl
+                    item.setCenterImageUrl(imageUrl);
+
+                    data.add(item);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            adapter.notifyDataSetChanged();
+        }, error -> {
+                    VolleyLog.d(TAG, "ERROR : " + error.getMessage());
+                    dismissProgressDialog();
+
                 });
 
         // Adding request to request queue
