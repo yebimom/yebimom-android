@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="15dp">
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/detailCenterImage"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Center Name"
+        android:id="@+id/detailCenterName"
+        android:layout_below="@+id/detailCenterImage"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/font_point"
+        android:layout_centerHorizontal="true"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailRatingBar"
+        android:rating="3.5"
+        android:layout_below="@+id/detailCenterName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="address"
+        android:id="@+id/detailAddress"
+        android:layout_below="@+id/detailRatingBar"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black_alpha_26"
+        android:textSize="15sp"/>
+
+
+</RelativeLayout>
