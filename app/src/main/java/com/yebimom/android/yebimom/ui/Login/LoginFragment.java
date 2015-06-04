@@ -1,10 +1,13 @@
 package com.yebimom.android.yebimom.ui.login;
 
 
+import android.app.ProgressDialog;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,10 +25,8 @@ public class LoginFragment extends Fragment {
 
     private final static String TAG = LoginFragment.class.getSimpleName();
 
-    @InjectView(R.id.loginId)
-    EditText mLoginId;
-    @InjectView(R.id.loginPassword)
-    EditText mPassword;
+    @InjectView(R.id.loginId) EditText mLoginId;
+    @InjectView(R.id.loginPassword) EditText mPassword;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,12 +36,6 @@ public class LoginFragment extends Fragment {
 
         // ButterKnife init
         ButterKnife.inject(this, rootView);
-
-        ActionBar actionbar = ((ActionBarActivity) getActivity()).getSupportActionBar();
-
-        if (actionbar != null) {
-            actionbar.show();
-        }
 
         return rootView;
     }
@@ -52,7 +47,9 @@ public class LoginFragment extends Fragment {
 
         JwtAuthLoginToken jwtAuthLoginToken = JwtAuthLoginToken.getInstance();
         jwtAuthLoginToken.createLoginToken(loginId, loginPassword);
+        Log.d(TAG, "Token : " + jwtAuthLoginToken.getLoginToken());
 
+        getActivity().finish();
     }
 
     @Override

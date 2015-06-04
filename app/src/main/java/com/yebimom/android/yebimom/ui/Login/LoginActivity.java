@@ -65,7 +65,7 @@ public class LoginActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
+        getSupportActionBar().hide();
     }
 
     @Override

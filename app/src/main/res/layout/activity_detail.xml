@@ -35,13 +35,14 @@
                     android:id="@+id/detailCenterName"
                     android:layout_below="@+id/detailCenterImage"
                     android:layout_marginTop="15dp"
-                    android:textColor="@color/black_alpha_26"
+                    android:textColor="@color/font_point"
                     android:layout_centerHorizontal="true"/>
 
                 <RatingBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/detailRatingBar"
+                    android:rating="3.5"
                     android:layout_below="@+id/detailCenterName"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"/>

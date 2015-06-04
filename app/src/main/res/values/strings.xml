@@ -7,9 +7,10 @@
 
     <string name="shared_element_1">SharedElement1</string>
     <string name="shared_element_2">SharedElement2</string>
-    <string name="free_board">FreeBoard</string>
-    <string name="love_board">LoveBoard</string>
-    <string name="anonymous_board">AnonyBoard</string>
+
     <string name="home">Home</string>
+    <string name="menu_event">Event</string>
+    <string name="calling_dibs">like</string>
+    <string name="anonymous_board">AnonyBoard</string>
     <string name="action_help">Help</string>
 </resources>

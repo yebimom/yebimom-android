@@ -43,16 +43,11 @@ public class CenterListActivity extends ActionBarActivity {
 
     private final static String TAG = CenterListActivity.class.getSimpleName();
 
-    @InjectView(R.id.toolbar)
-    Toolbar toolbar;
-    @InjectView(R.id.drawer_layout)
-    DrawerLayout drawerLayout;
-    @InjectView(R.id.centerCardList)
-    RecyclerView recyclerView;
-    @InjectView(R.id.left_drawer)
-    View naviagtionDrawer;
-    @InjectView(R.id.left_drawer_loginlogout)
-    View loginlogout;
+    @InjectView(R.id.toolbar) Toolbar toolbar;
+    @InjectView(R.id.drawer_layout) DrawerLayout drawerLayout;
+    @InjectView(R.id.centerCardList) RecyclerView recyclerView;
+    @InjectView(R.id.left_drawer) View naviagtionDrawer;
+    @InjectView(R.id.left_drawer_loginlogout) View loginlogout;
 
     private ActionBarDrawerToggle dtToggle;
     private ProgressDialog mProgressDialog;
@@ -81,6 +76,7 @@ public class CenterListActivity extends ActionBarActivity {
         // Show Progress Dialog to wait for getting request data.
         showProgressDialog();
 
+        // Request json data from server.
         JsonArrayRequest jsonArrayRequest =
                 new JsonArrayRequest(Request.Method.GET,
                                             CENTER_API_URL, new Response.Listener<JSONArray>() {
@@ -91,9 +87,25 @@ public class CenterListActivity extends ActionBarActivity {
                         for (int i = 0; i < response.length(); i++) {
                             try {
                                 CenterData item = new CenterData();
-                                JSONObject object = response.getJSONObject(i);
-                                item.setCenterName(object.getString("title"));
-                                item.setCenterImageUrl(object.getString("image"));
+                                JSONObject jsonObject = response.getJSONObject(i);
+
+                                // set item name
+                                item.setCenterName(jsonObject.getString("name"));
+
+                                // set itme address
+                                item.setCenterAddress(jsonObject.getString("address"));
+
+                                // 이미지 url : 서버에서 잘못보내주는 url을 처리
+                                String imageurl;
+                                if ( jsonObject.getString("main_image_url").contains("http") ){
+                                    imageurl = jsonObject.getString("main_image_url");
+                                }else {
+                                    imageurl = "https://yebimom.com";
+                                    imageurl += jsonObject.getString("main_image_url");
+                                }
+
+                                // set imageurl
+                                item.setCenterImageUrl(imageurl);
 
                                 data.add(item);
 
