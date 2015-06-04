@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
 	compileSdkVersion 21
@@ -32,8 +33,8 @@ android {
 	}
 
 	compileOptions {
-		sourceCompatibility JavaVersion.VERSION_1_7
-		targetCompatibility JavaVersion.VERSION_1_7
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
 	}
 
 	lintOptions {
@@ -44,7 +45,7 @@ android {
 
 dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
-	compile 'com.android.support:appcompat-v7:22.0.0'
+	compile 'com.android.support:appcompat-v7:22.1.1'
 
 	// Facebook SDK.
 	compile 'com.facebook.android:facebook-android-sdk:3.21.1'
@@ -73,4 +74,15 @@ dependencies {
 	// CardView, RecyclerView : android view library
 	compile 'com.android.support:cardview-v7:22.0.0'
 	compile 'com.android.support:recyclerview-v7:22.0.0'
+}
+
+buildscript {
+	repositories {
+		jcenter()
+	}
+
+	dependencies {
+		// RetroLambda : using lambda
+		classpath 'me.tatarka:gradle-retrolambda:3.1.0'
+	}
 }

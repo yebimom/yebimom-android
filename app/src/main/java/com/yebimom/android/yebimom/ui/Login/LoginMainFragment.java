@@ -39,6 +39,7 @@ public class LoginMainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_login_main, container, false);
 
+        // Init ButterKnife
         ButterKnife.inject(this, rootView);
 
         // Facebook Login
@@ -51,18 +52,8 @@ public class LoginMainFragment extends Fragment {
     @OnClick(R.id.mainLoginButton)
     public void loginButton() {
         Log.d(TAG, "Login Click");
-
         ViewPager parentViewPager = (ViewPager) getActivity().findViewById(R.id.loginViewPager);
-        LoginViewPagerAdapter parentViewPagerAdapter = (LoginViewPagerAdapter) parentViewPager.getAdapter();
-
         parentViewPager.setCurrentItem(1, true);
-
-        //      로그인 Fragment 애니메이션 전환
-//        getFragmentManager().beginTransaction()
-//                .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_right, 0, 0)
-//                .add(R.id.loginMainFragment, new LoginFragment())
-//                .addToBackStack(null)
-//                .commit();
 
     }
 
@@ -106,6 +97,7 @@ public class LoginMainFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        // Dismiss ButterKnife
         ButterKnife.reset(this);
     }
 }

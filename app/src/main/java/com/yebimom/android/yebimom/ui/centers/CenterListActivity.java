@@ -43,16 +43,11 @@ public class CenterListActivity extends ActionBarActivity {
 
     private final static String TAG = CenterListActivity.class.getSimpleName();
 
-    @InjectView(R.id.toolbar)
-    Toolbar toolbar;
-    @InjectView(R.id.drawer_layout)
-    DrawerLayout drawerLayout;
-    @InjectView(R.id.centerCardList)
-    RecyclerView recyclerView;
-    @InjectView(R.id.left_drawer)
-    View naviagtionDrawer;
-    @InjectView(R.id.left_drawer_loginlogout)
-    View loginlogout;
+    @InjectView(R.id.toolbar) Toolbar toolbar;
+    @InjectView(R.id.drawer_layout) DrawerLayout drawerLayout;
+    @InjectView(R.id.centerCardList) RecyclerView recyclerView;
+    @InjectView(R.id.left_drawer) View naviagtionDrawer;
+    @InjectView(R.id.left_drawer_loginlogout) View loginlogout;
 
     private ActionBarDrawerToggle dtToggle;
     private ProgressDialog mProgressDialog;
@@ -81,36 +76,49 @@ public class CenterListActivity extends ActionBarActivity {
         // Show Progress Dialog to wait for getting request data.
         showProgressDialog();
 
-        JsonArrayRequest jsonArrayRequest =
-                new JsonArrayRequest(Request.Method.GET,
-                                            CENTER_API_URL, new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        dismissProgressDialog();
+        // Request json data from server.
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, CENTER_API_URL, response -> {
+            dismissProgressDialog();
 
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-                                CenterData item = new CenterData();
-                                JSONObject object = response.getJSONObject(i);
-                                item.setCenterName(object.getString("title"));
-                                item.setCenterImageUrl(object.getString("image"));
+            for (int i = 0; i < response.length(); i++) {
+                try {
+                    CenterData item = new CenterData();
+                    JSONObject jsonObject = response.getJSONObject(i);
 
-                                data.add(item);
+                    // set item name
+                    item.setCenterName(jsonObject.getString("name"));
 
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
+                    // set item address
+                    item.setCenterAddress(jsonObject.getString("address"));
 
-                        adapter.notifyDataSetChanged();
+                    // set item phone number
+                    item.setCenterPhoneNumber(jsonObject.getString("phone"));
+
+                    // Todo : 서버에서 잘못보내주는 url을 처리중
+                    // API 수정시 다시 고쳐야함
+                    String imageUrl;
+                    if ( jsonObject.getString("main_image_url").contains("http") ){
+                        imageUrl = jsonObject.getString("main_image_url");
+                    }else {
+                        imageUrl = "https://yebimom.com";
+                        imageUrl += jsonObject.getString("main_image_url");
                     }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        VolleyLog.d(TAG, "ERROR : " + error.getMessage());
-                        dismissProgressDialog();
 
-                    }
+                    // set imageUrl
+                    item.setCenterImageUrl(imageUrl);
+
+                    data.add(item);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            adapter.notifyDataSetChanged();
+        }, error -> {
+                    VolleyLog.d(TAG, "ERROR : " + error.getMessage());
+                    dismissProgressDialog();
+
                 });
 
         // Adding request to request queue

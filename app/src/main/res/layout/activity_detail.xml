@@ -15,51 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="15dp">
+            <!-- Center image, name, address, rations -->
+            <include layout="@layout/layout_center_topimage" />
 
-                <com.android.volley.toolbox.NetworkImageView
-                    android:id="@+id/detailCenterImage"
-                    android:layout_marginTop="?attr/actionBarSize"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:scaleType="centerCrop"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Center Name"
-                    android:id="@+id/detailCenterName"
-                    android:layout_below="@+id/detailCenterImage"
-                    android:layout_marginTop="15dp"
-                    android:textColor="@color/black_alpha_26"
-                    android:layout_centerHorizontal="true"/>
-
-                <RatingBar
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/detailRatingBar"
-                    android:layout_below="@+id/detailCenterName"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="서울특별시 동작구"
-                    android:id="@+id/detailAddress"
-                    android:layout_below="@+id/detailRatingBar"
-                    android:layout_marginTop="10dp"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/black_alpha_26"
-                    android:textSize="15sp"/>
-
-
-            </RelativeLayout>
-
+            <!-- Center reviews -->
             <include layout="@layout/layout_center_reviews" />
 
         </LinearLayout>

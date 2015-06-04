@@ -112,7 +112,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/free_board"
+                android:text="@string/menu_event"
                 android:layout_marginLeft="@dimen/keyline_second"
                 style="@style/Widget.MyTheme.NavigationDrawerItem.TextView"/>
         </FrameLayout>
@@ -129,7 +129,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/love_board"
+                android:text="@string/calling_dibs"
                 android:layout_marginLeft="@dimen/keyline_second"
                 style="@style/Widget.MyTheme.NavigationDrawerItem.TextView"/>
         </FrameLayout>
