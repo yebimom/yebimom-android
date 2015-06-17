@@ -29,7 +29,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:background="#CCEEE8E9">
@@ -40,10 +40,22 @@
                 android:layout_height="wrap_content"
                 android:text="Center Name Mock"
                 android:textSize="20sp"
-                android:textColor="#67b1d3"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="12dp"/>
+                android:textColor="@color/font_pink"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="12dp"/>
+
+            <TextView
+                android:id="@+id/cardCenterAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="address"
+                android:textSize="12sp"
+                android:textColor="@color/font_pink"
+                android:layout_below="@id/cardCenterName"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="6dp"
+                />
 
         </RelativeLayout>
 

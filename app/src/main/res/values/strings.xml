@@ -5,13 +5,17 @@
     <string name="facebook_app_id" translatable="false">1058893210804001</string>
     <string name="login">Login</string>
 
-    <string name="shared_element_1">SharedElement1</string>
-    <string name="shared_element_2">SharedElement2</string>
+    <string name="shared_element_1" translatable="false">SharedElement1</string>
+    <string name="shared_element_2" translatable="false">SharedElement2</string>
 
-    <string name="home">Home</string>
+    <string name="menu_home">Home</string>
     <string name="menu_event">Event</string>
-    <string name="calling_dibs">like</string>
-    <string name="anonymous_board">AnonyBoard</string>
+    <string name="menu_review">Review</string>
+    <string name="menu_celebrate">Celebrate</string>
+    <string name="menu_view">View</string>
+    <string name="menu_efficiency">Efficiency</string>
+    
     <string name="action_help">Help</string>
     <string name="contact_host">Contact Host</string>
+    <string name="review_more">more review</string>
 </resources>

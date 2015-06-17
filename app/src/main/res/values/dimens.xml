@@ -22,11 +22,11 @@
     <dimen name="keyline_first_minus">8dp</dimen>
 
     <!--increments-->
-    <dimen name="appbar">56dp</dimen>
-    <dimen name="appbar_x2">112dp</dimen>
-    <dimen name="appbar_x3">168dp</dimen>
-    <dimen name="appbar_x4">224dp</dimen>
-    <dimen name="appbar_x6">336dp</dimen>
+    <dimen name="appbar">80dp</dimen>
+    <dimen name="appbar_x2">160dp</dimen>
+    <dimen name="appbar_x3">240dp</dimen>
+    <dimen name="appbar_x4">320dp</dimen>
+    <dimen name="appbar_x6">480dp</dimen>
 
     <!--typo-->
     <dimen name="content_headline_24sp">24sp</dimen>

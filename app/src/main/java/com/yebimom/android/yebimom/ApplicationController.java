@@ -9,6 +9,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.yebimom.android.yebimom.utils.LruBitmapCache;
+import com.yebimom.android.yebimom.utils.TypefaceUtil;
 
 /**
  * com.yebimom.android.yebimom Need Comment!
@@ -25,6 +26,9 @@ public class ApplicationController extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
+
+        // Set fonts.
+        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/bmjua.ttf");
 
         instance = this;
     }

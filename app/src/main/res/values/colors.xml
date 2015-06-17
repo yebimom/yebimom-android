@@ -4,7 +4,7 @@
 
     <color name="default_background">#F5F5F5</color>
     <color name="default_white_background">#F5F5F5</color>
-    <color name="detail_background">#0096a6</color>
+    <color name="detail_background">#F8F7F7</color>
 
     <color name="black_alpha_87">#de000000</color>
     <color name="black_alpha_54">#8a000000</color>
@@ -23,5 +23,8 @@
     <color name="footer">#576575</color>
     <color name="footer_font">#bababa</color>
     <color name="footer_font_lighter">#8e8e8d</color>
+
+    <color name="font_color_black">#161814</color>
+    <color name="font_pink">#dd5275</color>
 
 </resources>

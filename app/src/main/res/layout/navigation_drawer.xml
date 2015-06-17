@@ -38,44 +38,38 @@
 
                 <TextView
                     android:id="@+id/profile_email_text"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentBottom="true"
-
-                    android:paddingLeft="@dimen/keyline_second"
-
                     android:text="Corikachu님 환영합니다!"
                     android:textSize="@dimen/content_cpation_12sp"
-                    android:textColor="@color/white_alpha_54"
+                    android:textColor="@color/font_color_black"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:ellipsize="end" />
+                    android:ellipsize="end"
+                    android:layout_centerHorizontal="true"/>
 
                 <TextView
                     android:id="@+id/profile_name_text"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_above="@id/profile_email_text"
-                    android:layout_alignParentLeft="true"
-
-                    android:paddingLeft="@dimen/keyline_second"
-
                     android:text="안유정"
                     android:textSize="@dimen/content_body_14sp"
-                    android:textColor="@color/white_alpha_87"
+                    android:textColor="@color/font_color_black"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:ellipsize="end" />
+                    android:ellipsize="end"
+                    android:layout_above="@+id/profile_email_text"
+                    android:layout_centerHorizontal="true" />
 
                 <ImageView
                     android:id="@+id/profile_image"
-                    android:src="@drawable/person_image_empty"
+                    android:src="@drawable/avata"
                     android:layout_width="@dimen/navdrawer_profile_image_size"
                     android:layout_height="@dimen/navdrawer_profile_image_size"
-                    android:layout_marginLeft="@dimen/keyline_first"
-                    android:layout_alignParentBottom="true"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
 
             </RelativeLayout>
 
@@ -85,18 +79,20 @@
         <FrameLayout
             android:id="@+id/left_drawer_home"
             style="@style/Widget.MyTheme.NavigationDrawerItem">
+            <!--
             <ImageView
                 android:src="@drawable/ic_home_grey600_24dp"
                 android:layout_marginLeft="@dimen/keyline_first"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 style="@style/Widget.MyTheme.NavigationDrawerItem.IconView"/>
+                -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/home"
-                android:layout_marginLeft="@dimen/keyline_second"
-                style="@style/Widget.MyTheme.NavigationDrawerItem.TextView"/>
+                android:text="@string/menu_home"
+                android:layout_marginLeft="@dimen/keyline_first"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.TextView" />
         </FrameLayout>
 
         <FrameLayout
@@ -104,7 +100,7 @@
             style="@style/Widget.MyTheme.NavigationDrawerItem">
 
             <ImageView
-                android:src="@drawable/ic_forum_grey600_24dp"
+                android:src="@drawable/menu_icon_event"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/keyline_first"
@@ -118,10 +114,10 @@
         </FrameLayout>
 
         <FrameLayout
-            android:id="@+id/left_drawer_love_board"
+            android:id="@+id/left_drawer_reivews"
             style="@style/Widget.MyTheme.NavigationDrawerItem">
             <ImageView
-                android:src="@drawable/ic_favorite_grey600_24dp"
+                android:src="@drawable/menu_icon_review"
                 android:layout_marginLeft="@dimen/keyline_first"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -129,16 +125,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/calling_dibs"
+                android:text="@string/menu_review"
                 android:layout_marginLeft="@dimen/keyline_second"
                 style="@style/Widget.MyTheme.NavigationDrawerItem.TextView"/>
         </FrameLayout>
 
         <FrameLayout
-            android:id="@+id/left_drawer_anonymous_board"
+            android:id="@+id/left_drawer_celebrate"
             style="@style/Widget.MyTheme.NavigationDrawerItem">
             <ImageView
-                android:src="@drawable/ic_visibility_off_grey600_24dp"
+                android:src="@drawable/menu_icon_celebrate"
                 android:layout_marginLeft="@dimen/keyline_first"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -146,7 +142,41 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/anonymous_board"
+                android:text="@string/menu_celebrate"
+                android:layout_marginLeft="@dimen/keyline_second"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.TextView"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/left_drawer_view"
+            style="@style/Widget.MyTheme.NavigationDrawerItem">
+            <ImageView
+                android:src="@drawable/menu_icon_tree"
+                android:layout_marginLeft="21dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.IconView"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/menu_view"
+                android:layout_marginLeft="@dimen/keyline_second"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.TextView"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/left_drawer_price_per_efficiency"
+            style="@style/Widget.MyTheme.NavigationDrawerItem">
+            <ImageView
+                android:src="@drawable/menu_icon_calc"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="@style/Widget.MyTheme.NavigationDrawerItem.IconView"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/menu_efficiency"
                 android:layout_marginLeft="@dimen/keyline_second"
                 style="@style/Widget.MyTheme.NavigationDrawerItem.TextView"/>
         </FrameLayout>

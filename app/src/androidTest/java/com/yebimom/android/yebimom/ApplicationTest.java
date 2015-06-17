@@ -11,15 +11,11 @@ import org.junit.runner.RunWith;
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
  */
-@RunWith(AndroidJUnit4.class)
+//@RunWith(AndroidJUnit4.class)
 @LargeTest
 public class ApplicationTest extends ApplicationTestCase<Application> {
     public ApplicationTest() {
         super(Application.class);
     }
 
-    @Test
-    public void defaultTest1(){
-        assertTrue(true);
-    }
 }

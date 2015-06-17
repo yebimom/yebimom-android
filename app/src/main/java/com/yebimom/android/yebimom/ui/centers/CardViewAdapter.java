@@ -18,7 +18,7 @@ import com.yebimom.android.yebimom.ui.detail.DetailActivity;
 import java.util.ArrayList;
 
 /**
- * com.yebimom.android.yebimom.ui.centers Need Comment!
+ * 센터 리스트 출력 액티비티
  */
 public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHolder> {
 
@@ -52,17 +52,14 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
 
         CenterData centerData = data.get(position);
         holder.centerName.setText(centerData.getCenterName());
+        holder.centerAddress.setText(centerData.getCenterAddress());
         holder.centerImage.setImageUrl(centerData.getCenterImageUrl(), mImageLoader);
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context context = ApplicationController.getInstance().getApplicationContext();
-                Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra("centerData", data.get(position));
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
-            }
+        holder.itemView.setOnClickListener(v -> {
+            Context context = ApplicationController.getInstance().getApplicationContext();
+            Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra("centerData", data.get(position));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
         });
     }
 
@@ -74,6 +71,7 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         protected TextView centerName;
+        protected TextView centerAddress;
         protected NetworkImageView centerImage;
         protected View itemView;
 
@@ -82,6 +80,7 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
             this.itemView = itemView;
             centerName = (TextView) itemView.findViewById(R.id.cardCenterName);
             centerImage = (NetworkImageView) itemView.findViewById(R.id.centerImage);
+            centerAddress = (TextView) itemView.findViewById(R.id.cardCenterAddress);
         }
 
     }

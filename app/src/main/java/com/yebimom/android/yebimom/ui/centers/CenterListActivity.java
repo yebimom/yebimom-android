@@ -15,8 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.yebimom.android.yebimom.ApplicationController;
@@ -24,7 +22,6 @@ import com.yebimom.android.yebimom.R;
 import com.yebimom.android.yebimom.ui.CenterData;
 import com.yebimom.android.yebimom.ui.login.LoginActivity;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -78,7 +75,6 @@ public class CenterListActivity extends ActionBarActivity {
 
         // Request json data from server.
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, CENTER_API_URL, response -> {
-            dismissProgressDialog();
 
             for (int i = 0; i < response.length(); i++) {
                 try {
@@ -87,6 +83,9 @@ public class CenterListActivity extends ActionBarActivity {
 
                     // set item name
                     item.setCenterName(jsonObject.getString("name"));
+
+                    // set item hash id
+                    item.setCenterHashId(jsonObject.getString("hash_id"));
 
                     // set item address
                     item.setCenterAddress(jsonObject.getString("address"));
@@ -113,13 +112,14 @@ public class CenterListActivity extends ActionBarActivity {
                     e.printStackTrace();
                 }
             }
+            // Dismiss Progress Dialog.
+            dismissProgressDialog();
 
             adapter.notifyDataSetChanged();
         }, error -> {
                     VolleyLog.d(TAG, "ERROR : " + error.getMessage());
                     dismissProgressDialog();
-
-                });
+        });
 
         // Adding request to request queue
         ApplicationController.getInstance().addToRequestQueue(jsonArrayRequest);
@@ -144,10 +144,14 @@ public class CenterListActivity extends ActionBarActivity {
     private void setNavigationToolbar() {
         // Set ActionBar
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.icon_actionbar);
 
         // Set Navigation Drawer
-        dtToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name);
+        dtToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
+        dtToggle.setHomeAsUpIndicator(R.drawable.icon_actionbar);
         drawerLayout.setDrawerListener(dtToggle);
     }
 

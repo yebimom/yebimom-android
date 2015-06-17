@@ -2,6 +2,9 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:typeface">serif</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="actionBarStyle">@style/ActionBar</item>
     </style>
 
     <style name="MyTheme.WithNavi" parent="@style/AppTheme"/>
@@ -9,6 +12,16 @@
     <style name="MyTheme.FullScreen" parent="@style/Theme.AppCompat.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!-- navigation drawer style -->
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/font_pink</item>
+    </style>
+
+    <style name="ActionBar" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/font_pink</item>
     </style>
 
     <style name="Widget"/>
@@ -42,7 +55,7 @@
 
     <style name="Widget.MyTheme.NavigationDrawerItem.TextView">
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/black_alpha_87</item>
+        <item name="android:textColor">@color/font_color_black</item>
         <item name="android:textStyle">normal</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:clickable">false</item>
