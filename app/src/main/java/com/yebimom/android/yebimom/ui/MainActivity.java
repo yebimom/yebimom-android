@@ -1,10 +1,15 @@
 package com.yebimom.android.yebimom.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.yebimom.android.yebimom.R;
 import com.yebimom.android.yebimom.ui.centers.CenterListActivity;

@@ -5,6 +5,9 @@ import android.util.Log;
 
 import com.yebimom.android.yebimom.utils.HttpLogin;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * JwtAuthLoginToken class used to singleton pattern
  */
@@ -29,8 +32,13 @@ public class JwtAuthLoginToken {
                                       .setPassword(password)
                                       .addQueue();
 
-        if(httpLogin.isLogin()){
-            loginToken = httpLogin.getToken();
+        if(httpLogin.isLogin() && httpLogin.getToken() != null){
+            try {
+                JSONObject jsonObject = new JSONObject(httpLogin.getToken());
+                loginToken = jsonObject.getString("token");
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
             Log.d(TAG, loginToken);
         }else{
             Log.d(TAG, "Login Error");

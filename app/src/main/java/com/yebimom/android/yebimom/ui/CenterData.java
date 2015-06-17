@@ -3,14 +3,14 @@ package com.yebimom.android.yebimom.ui;
 import java.io.Serializable;
 
 /**
- * com.yebimom.android.yebimom.ui Need Comment!
+ * 센터 데이터
  */
 public class CenterData implements Serializable {
 
     private String centerName;
+    private String centerHashId;
     private String centerImageUrl;
     private String centerAddress;
-
     private String centerPhoneNumber;
 
     public String getCenterName() {
@@ -19,6 +19,14 @@ public class CenterData implements Serializable {
 
     public void setCenterName(String centerName) {
         this.centerName = centerName;
+    }
+
+    public String getCenterHashId() {
+        return centerHashId;
+    }
+
+    public void setCenterHashId(String centerHashId) {
+        this.centerHashId = centerHashId;
     }
 
     public String getCenterImageUrl() {

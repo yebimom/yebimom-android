@@ -11,7 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 
-@RunWith(AndroidJUnit4.class)
+//@RunWith(AndroidJUnit4.class)
 @LargeTest
 public class MainActivityTest extends AndroidTestCase {
 
@@ -19,8 +19,4 @@ public class MainActivityTest extends AndroidTestCase {
         super();
     }
 
-    @Test
-    public void defaultTest2(){
-        assertTrue(true);
-    }
 }
